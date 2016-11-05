@@ -34,21 +34,21 @@ public:
   ClassTable(Classes);
   int errors() { return semant_errors; }
   ostream& semant_error();
-  ostream& semant_error(Class_ c);
+  ostream& semant_error(Class_ cls);
   ostream& semant_error(Symbol filename, tree_node *t);
 
   Class_ get_class(Symbol name);
-  void set_current_class(Class_ c);
+  void set_current_class(Class_ cls);
   Class_ get_current_class();
 
-  bool check_class_inheritance(Class_);
+  bool check_class_inheritance(Class_ cls);
 
-  method_class* get_method(Class_ c, Symbol m);
-  void publish_variables(Class_ c);
+  method_class* get_method(Class_ cls, Symbol m);
+  void publish_variables(Class_ cls);
   void publish_variables(method_class* m);
 
-  Symbol get_lc_ancestor(Class_ c1, Class_ c2);
-  bool is_child_class(Class_ c1, Class_ c2);
+  Symbol get_lc_ancestor(Class_ class1, Class_ class2);
+  bool is_child_class(Class_ class1, Class_ class2);
 
 };
 

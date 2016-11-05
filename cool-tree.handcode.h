@@ -58,20 +58,20 @@ void semant();     				\
 void dump_with_types(ostream&, int);            
 
 #define Class__EXTRAS                   \
-virtual Symbol get_filename() = 0;      \
 virtual void dump_with_types(ostream&,int) = 0; \
+virtual void semant(ClassTable*) = 0;  \
+virtual Symbol get_filename() = 0;      \
 virtual Symbol get_name() = 0;      \
 virtual Symbol get_parent() = 0;    \
-virtual void semant(ClassTable*) = 0;  \
 virtual Features get_features() = 0;
 
 
 #define class__EXTRAS                                 \
-Symbol get_filename() { return filename; }             \
 void dump_with_types(ostream&,int);                     \
+void semant(ClassTable*);               \
+Symbol get_filename() { return filename; }             \
 Symbol get_name() { return name; }                    \
 Symbol get_parent() { return parent; }              \
-void semant(ClassTable*);               \
 Features get_features() { return features; }
 
 
